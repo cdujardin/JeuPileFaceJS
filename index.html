@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+          <meta charset="utf-8"/>
+          <title>Jeu du Pile ou Face</title>
+          <link rel="stylesheet" type="text/css" href="style.css"/>
+          <script language="JavaScript">
+               function tirage(){
+                    var result=Math.round(Math.random());
+                    var i;
+                    for (i=0;i<2;i++){
+                        if (document.formparies.paries[i].checked){
+                              var paries = document.formparies.paries[i].value;
+                         };
+                    };
+                    console.log("result: " + result + ", paries: " + paries);
+
+                    if(result==1){
+                         document.getElementById("return").innerHTML = "<p>Résultat : Pile</p>";
+                         if(paries==1){
+                              alert("Winner!!!");
+                         }else{
+                              alert("Looser!!!");
+                         };
+                    }else {
+                         document.getElementById("return").innerHTML = "<p>Résultat : Face </p>";
+                         if(paries==0){
+                              alert("Winner!!!");
+                         }else{
+                              alert("Looser!!!");
+                         };
+                    };
+                    return;
+               };
+
+
+          </script>
+     </head>
+
+     <body>
+          <center>
+               <h1>Jeu du Pile ou Face</h1>
+
+               <form id="formparie" name="formparies" method="post"  action="#" onsubmit="tirage();">
+                    <h3>Faites vos paries!!!</h3>
+                    <input type="radio" name="paries" value="1"/>Pile
+                    <input type="radio" name="paries" value="0"/>Face
+                    <br/>
+                    <input id="submit" type="submit" name="submit" value="submit"/>
+               </form>
+               <div id="return"> </div>
+          </center>
+
+     </body>
+</html>
